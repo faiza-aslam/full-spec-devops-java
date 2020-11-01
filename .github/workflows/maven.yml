@@ -5,13 +5,15 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - 'master'
+      - 'release/**'
+      - 'hotfix/**'
+env:
+  DO_DEPLOY: true
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +22,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.11
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Build & Test with Maven
+      run: mvn -B verify --file pom.xml
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo Hello everybody $DO_DEPLOY

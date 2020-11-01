@@ -1,5 +1,9 @@
 # react project
 
+<p align="left">
+  <a href="https://github.com/faiza-aslam/full-spec-devops-java"><img alt="GitHub Actions status" src="https://github.com/faiza-aslam/full-spec-devops-java/workflows/Java%20CI%20with%20Maven/badge.svg"></a>
+</p>
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
