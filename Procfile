@@ -1,1 +1,1 @@
-web: java -jar $JAVA_OPTS -Dserver.port=$PORT target/react-1.0-SNAPSHOT-runner.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/react-1.0-SNAPSHOT-runner.jar
