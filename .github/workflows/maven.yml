@@ -32,6 +32,7 @@ jobs:
     # this is just another job in pipeline to run tests, although maven does it
     # during package phase as above. But tests are explicitly made part of
     # this job only
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -49,7 +50,7 @@ jobs:
         run: mvn -B clean verify
 
   deploy:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
