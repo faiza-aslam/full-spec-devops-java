@@ -6,8 +6,6 @@ on:
       - 'master'
       - 'release/**'
       - 'hotfix/**'
-env:
-  DO_DEPLOY: true
 
 jobs:
   build:
@@ -50,7 +48,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ env.DO_DEPLOY }} == true
+    if: ${{ secrets.DO_DEPLOY }} == true
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Heroku
